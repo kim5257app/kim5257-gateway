@@ -8,9 +8,9 @@ services:
     networks:
       - backend
     volumes:
-      - /home/master/nfs/kim5257-gateway-nginx/conf.d:/etc/nginx/conf.d
-      - /home/master/nfs/kim5257-gateway-nginx/htdocs:/usr/share/nginx/htdocs
-      - /home/master/nfs/kim5257-gateway-nginx/cert:/cert
+      - /home/cnslink/nfs/kim5257-gateway-nginx/conf.d:/etc/nginx/conf.d
+      - /home/cnslink/nfs/kim5257-gateway-nginx/htdocs:/usr/share/nginx/htdocs
+      - /home/cnslink/nfs/kim5257-gateway-nginx/cert:/cert
   redis:
     image: redis
     ports:
