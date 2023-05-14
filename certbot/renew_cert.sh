@@ -8,3 +8,5 @@ while read line || [ -n "$line" ] ; do
     bash ./certbot_run.sh $line >> certbot_run.log;
     ((idx+=1))
 done < domain_list.txt
+
+docker service update --force kim5257_gateway_nginx
