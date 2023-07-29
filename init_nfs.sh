@@ -11,23 +11,23 @@ apt update
 apt install -y nfs-common nfs-kernel-server
 
 # 공유폴더 생성
-if [ -d "/home/cnslink/nfs" ]; then
+if [ -d "/home/$USER/nfs" ]; then
     echo "NFS shared folder already exist"
 else
-    mkdir /home/cnslink/nfs
+    mkdir /home/$USER/nfs
 fi
 
-if [ -d "/home/cnslink/nfs_remote" ]; then
+if [ -d "/home/$USER/nfs_remote" ]; then
     echo "NFS test folder already exist"
 else
-    mkdir /home/cnslink/nfs_remote
+    mkdir /home/$USER/nfs_remote
 fi
-chmod 777 /home/cnslink/nfs
+chmod 777 /home/$USER/nfs
 
 # 이미 설정된 경우 건너뜀
-if [ `cat /etc/exports | grep "/home/cnslink/nfs" | wc -l` -lt 1 ]; then
+if [ `cat /etc/exports | grep "/home/$USER/nfs" | wc -l` -lt 1 ]; then
     # 공유폴더 설정
-    tee -a /etc/exports <<< "/home/cnslink/nfs *(rw,async)"
+    tee -a /etc/exports <<< "/home/$USER/nfs *(rw,async)"
 fi
 
 # NFS 서비스 재시작
@@ -37,11 +37,11 @@ sudo systemctl restart nfs-kernel-server
 MY_IP=`ifconfig eth0 | grep 'inet ' | awk '{ print $2}'`
 TEST_FILE="TEST.tmp"
 
-mount ${MY_IP}:/home/cnslink/nfs /home/cnslink/nfs_remote
+mount ${MY_IP}:/home/$USER/nfs /home/$USER/nfs_remote
 
-touch /home/cnslink/nfs_remote/${TEST_FILE}
+touch /home/$USER/nfs_remote/${TEST_FILE}
 
-if [ -f "/home/cnslink/nfs/${TEST_FILE}" ]; then
+if [ -f "/home/$USER/nfs/${TEST_FILE}" ]; then
     echo "NFS Settings complete"
 else
     echo "NFS Settings failed"

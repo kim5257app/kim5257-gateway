@@ -1,0 +1,21 @@
+version: '3'
+services:
+  nginx:
+    image: kim5257app/kim5257-gateway-nginx
+    ports:
+      - "80:80"
+      - "443:443"
+    networks:
+      - backend
+    volumes:
+      - /home/$USER/nfs/kim5257-gateway-nginx/conf.d:/etc/nginx/conf.d
+      - /home/$USER/nfs/kim5257-gateway-nginx/htdocs:/usr/share/nginx/htdocs
+      - /home/$USER/nfs/kim5257-gateway-nginx/cert:/cert
+  redis:
+    image: redis
+    ports:
+      - "6379:6379"
+    networks:
+      - backend
+networks:
+  backend:
