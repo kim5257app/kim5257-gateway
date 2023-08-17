@@ -1,7 +1,7 @@
 #!/bin/bash
 
-CONF_HOME=/home/cnslink/nfs/kim5257-gateway-nginx/conf.d
-CERT_HOME=/home/cnslink/nfs/kim5257-gateway-nginx/cert
+CONF_HOME=/home/$USER/nfs/kim5257-gateway-nginx/conf.d
+CERT_HOME=/home/$USER/nfs/kim5257-gateway-nginx/cert
 
 if [ $# -ne 2 ] ; then
     echo "도메인 이름을 인자로 넣어야 합니다."

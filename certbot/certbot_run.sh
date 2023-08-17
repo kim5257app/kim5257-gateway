@@ -1,2 +1,2 @@
-certbot certonly --webroot --webroot-path=/home/cnslink/nfs/kim5257-gateway-nginx/htdocs/letsencrypt -d $1 --cert-path /home/cnslink/nfs/kim5257-gateway-nginx/cert --config-dir . --work-dir . --logs-dir .
-cp -R /home/cnslink/workspace/kim5257-gateway/certbot/archive/$1 /home/cnslink/nfs/kim5257-gateway-nginx/cert/
+certbot certonly --webroot --webroot-path=/home/$USER/nfs/kim5257-gateway-nginx/htdocs/letsencrypt -d $1 --cert-path /home/$USER/nfs/kim5257-gateway-nginx/cert --config-dir . --work-dir . --logs-dir .
+cp -R /home/$USER/workspace/kim5257-gateway/certbot/archive/$1 /home/$USER/nfs/kim5257-gateway-nginx/cert/
