@@ -6,7 +6,7 @@ services:
       - "80:80"
       - "443:443"
     networks:
-      - backend
+      - backbone
     volumes:
       - /home/master/nfs/kim5257-gateway-nginx/conf.d:/etc/nginx/conf.d
       - /home/master/nfs/kim5257-gateway-nginx/htdocs:/usr/share/nginx/htdocs
@@ -16,6 +16,6 @@ services:
     ports:
       - "6379:6379"
     networks:
-      - backend
+      - backbone
 networks:
-  backend:
+  backbone:
