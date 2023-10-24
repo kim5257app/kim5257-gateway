@@ -5,6 +5,7 @@ CERT_HOME=/home/$USER/nfs/kim5257-gateway-nginx/cert
 
 if [ $# -ne 2 ] ; then
     echo "도메인 이름을 인자로 넣어야 합니다."
+    exit -1;
 fi
 
 mkdir $CERT_HOME/$1
