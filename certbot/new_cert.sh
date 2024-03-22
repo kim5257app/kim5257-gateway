@@ -13,8 +13,8 @@ cp ./dummy_cert/* $CERT_HOME/$1
 
 sed "s/\$domain/$1/g" template.conf | sed "s/\$server_name/$2/g" > $CONF_HOME/$1.conf
 
-docker service update --force kim5257_gateway_nginx
+docker exec `docker container ls -f "name=kim5257_gateway_nginx" --format "{{.Names}}"` service nginx reload
 
 bash ./certbot_run.sh $1
 
-docker service update --force kim5257_gateway_nginx
+docker exec `docker container ls -f "name=kim5257_gateway_nginx" --format "{{.Names}}"` service nginx reload

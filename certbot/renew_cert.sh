@@ -15,4 +15,4 @@ while read line || [ -n "$line" ] ; do
     ((idx+=1))
 done < domain_list.txt
 
-docker service update --force kim5257_gateway_nginx
+docker exec `docker container ls -f "name=kim5257_gateway_nginx" --format "{{.Names}}"` service nginx reload
