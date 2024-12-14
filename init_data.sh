@@ -22,5 +22,5 @@ else
     mkdir /home/$USER/nfs/kim5257-gateway-nameserver
     mkdir /home/$USER/nfs/kim5257-gateway-nameserver/config
     mkdir /home/$USER/nfs/kim5257-gateway-nameserver/config/zone
-    touch /home/$USER/nfs/kim5257-gateway-nameserver/config/named.conf.local
+    cp ./data/nameserver/* /home/$USER/nfs/kim5257-gateway-nameserver/config
 fi

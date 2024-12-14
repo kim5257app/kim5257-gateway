@@ -28,7 +28,6 @@ services:
         published: 53
         mode: host
     volumes:
-      - /home/$USER/nfs/kim5257-gateway-nameserver/config/named.conf.local:/etc/bind/named.conf.local:nocopy
-      - /home/$USER/nfs/kim5257-gateway-nameserver/config/zone:/etc/bind/zone
+      - /home/$USER/nfs/kim5257-gateway-nameserver/config:/etc/bind
 networks:
   backbone:
