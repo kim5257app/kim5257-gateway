@@ -15,3 +15,12 @@ else
     mkdir /home/$USER/nfs/kim5257-gateway-nginx/conf.d
     mkdir /home/$USER/nfs/kim5257-gateway-nginx/cert
 fi
+
+if [ -d "/home/$USER/nfs/kim5257-gateway-nameserver" ]; then
+    echo "Nginx folder already exist"
+else
+    mkdir /home/$USER/nfs/kim5257-gateway-nameserver
+    mkdir /home/$USER/nfs/kim5257-gateway-nameserver/config
+    mkdir /home/$USER/nfs/kim5257-gateway-nameserver/config/zone
+    touch /home/$USER/nfs/kim5257-gateway-nameserver/config/named.conf.local
+fi
