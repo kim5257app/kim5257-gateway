@@ -17,7 +17,7 @@ else
 fi
 
 if [ -d "/home/$USER/nfs/kim5257-gateway-nameserver" ]; then
-    echo "Nginx folder already exist"
+    echo "Nameserver folder already exist"
 else
     mkdir /home/$USER/nfs/kim5257-gateway-nameserver
     mkdir /home/$USER/nfs/kim5257-gateway-nameserver/config
