@@ -15,13 +15,17 @@ services:
       - /home/$USER/nfs/kim5257-gateway-nginx/conf.d:/etc/nginx/conf.d
       - /home/$USER/nfs/kim5257-gateway-nginx/htdocs:/usr/share/nginx/htdocs
       - /home/$USER/nfs/kim5257-gateway-nginx/cert:/cert
-    deploy:
-      replicas: 2
   redis:
     image: redis
     ports:
       - "6379:6379"
     networks:
       - backbone
+  nameserver:
+    image: ubuntu/bind9
+    ports:
+      - target: 53
+        published: 53
+        mode: host
 networks:
   backbone:
